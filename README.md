@@ -86,7 +86,7 @@ For security reasons, it's a good idea to configure your firewall so that only t
               
 
 ## Grafana Dashboard
-I've provided a sample Grafana dashboard that you can use to visualize the metrics exported by this exporter. The dashboard can be found in the grafana/grafana.json file. To use it, follow these steps:
+I've provided a sample Grafana dashboard that you can use to visualize the metrics exported by this exporter. The dashboard can be found in the [grafana/grafana.json](https://github.com/mirekdusin/Prometheus-Wireguard-Exporter/blob/master/grafana/grafana.json) file.
 
 ## License
 

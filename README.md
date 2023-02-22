@@ -40,9 +40,9 @@ To install Prometheus WireGuard Metrics Exporter you need to perform the followi
 
 ## Usage
 
-You can run WireGuard Metrics Exporter by executing the `wg.py` file:
+You can run WireGuard Metrics Exporter by executing the `src/main.py` file:
 
-      `sudo python3 wg.py [--ip <IP>] [--port <port>] [--wg <path/to/wg>] [--tls-cert <path/to/cert.pem>] [--tls-key <path/to/key.pem>]`
+      `sudo python3 src/main.py [--ip <IP>] [--port <port>] [--wg <path/to/wg>] [--tls-cert <path/to/cert.pem>] [--tls-key <path/to/key.pem>]`
 
 The available options are:
 
@@ -72,6 +72,21 @@ To run `wireguard-exporter` as a systemd service, you can use the `install/insta
 To use the script, run the following command as root:
 
         `sudo chmod +x /opt/wireguard-exporter/install/install.sh && /opt/wireguard-exporter/install/install.sh`
+
+## Adding the Exporter to Prometheus
+To start scraping metrics from the exporter with Prometheus, you will need to add a scrape job to your Prometheus configuration file. Follow these steps to add the exporter to your scrape job:
+
+      scrape_configs:
+        - job_name: 'wireguard'
+          static_configs:
+            - targets: ['YOUR_WIREGUARD_IP:9820']
+              labels: 'wireguard'
+              
+For security reasons, it's a good idea to configure your firewall so that only the Prometheus server can access the exporter metrics. You can do this by adding a rule to your firewall that only allows incoming traffic on port 9820 from the IP address of your Prometheus server. This will prevent others from accessing the exporter metrics.
+              
+
+## Grafana Dashboard
+I've provided a sample Grafana dashboard that you can use to visualize the metrics exported by this exporter. The dashboard can be found in the grafana/grafana.json file. To use it, follow these steps:
 
 ## License
 

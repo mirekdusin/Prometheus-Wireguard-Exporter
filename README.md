@@ -4,6 +4,8 @@
 
 Prometheus Wireguard Metrics Exporter is a simple Python application that exports metrics from [Wireguard](https://github.com/WireGuard) to [Prometheus](https://prometheus.io/) format. This application uses the [Prometheus Python client library](https://github.com/prometheus/client_python) to generate metrics and the [FastAPI](https://fastapi.tiangolo.com/) framework to handle HTTP requests. This exporter can optionally use HTTPS for secure communication.
 
+![Screenshot of Grafana dashboard using metrics from exporter](grafana/grafana_screenshot.png)
+
 Metrics
 -------
 
